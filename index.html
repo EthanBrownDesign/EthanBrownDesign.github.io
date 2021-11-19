@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Index</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+<script>
+window.onload = function() {
+document.getElementById('CIT').onclick = functionElement()
+cit_array = []
+for(i = 0; i < data.length; i++){       // search the array
+       if(major[i] == "CIT"){            //is there a match?
+cit_array.push(data[i]);    //save the index in a variable
+}
+var display = document.getElementById("tableTemplate");
+}
+}
+window.onload = function() {
+document.getElementById('BUS').onclick = functionElement()
+bus_array = []
+for(i = 0; i < data.length; i++){       // search the array
+       if(major[i] == "BUS"){            //is there a match?
+           bus_array.push(data[i]); //save the index in a variable
+}
+var display = document.getElementById("tableTemplate");
+}
+}
+</script>
+</head>
+<body>
+<h1>Select a Major</h1> 
+<button type="button" id="CIT">CIT</button><button type="button" id="BUS">BUS</button>
+</body>
+<script type="text/x-handlebars-template" id="tableTemplate"> //table with handle bar
+<table cellspacing='12'>
+ {{#each rows}}
+                 <tr>
+                    <td>{{name}}</td><td>{{major}}</td><td>{{midterm}}</td><td>{{final}}</td>
+                 </tr>
+            {{/each}}
+</table> // end of table with handlebar
+</script>
+<script>
+function getData() { 
+     
+    var url = "cit5students.json";             //Step 1. set url of file with data we want  
+    var request = new XMLHttpRequest();      //2. create a XHR object, assign to variable named request
+    request.open("GET", url);                //3. open a GET request
+   
+	request.onload = function() {                     // when the data comes back, browser calls this function
+	var data = JSON.parse(request.responseText);    // convert json to javascript array of objects
+
+    request.onreadystatechange = function() {    callback function executes when data comes back 
+        if (request.readyState == 4 && request.status == 200) { 
+            alert(request.responseText);  //data is back, display it 
+        } 
+    }; 
+
+    request.send(null); // send the request
+}
+</script>
+</html>
