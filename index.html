@@ -4,7 +4,6 @@
 <title>Index</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 <script>
-<script type="text/javascript">
 window.onload = function() {
 document.getElementById('CIT').onclick = function(){
 cit_array = [];
@@ -15,6 +14,7 @@ cit_array.push(data[i]);    //save the index in a variable
 var display = document.getElementById("tableTemplate");
 }
 }
+}
 window.onload = function() {
 document.getElementById('BUS').onclick = function(){
 bus_array = [];
@@ -23,6 +23,7 @@ for(i = 0; i < data.length; i++){       // search the array
            bus_array.push(data[i]); //save the index in a variable
 }
 var display = document.getElementById("tableTemplate");
+}
 }
 }
 </script>
@@ -41,7 +42,6 @@ var display = document.getElementById("tableTemplate");
 </table>
 </script>
 <script>
-<script type="text/javascript">
 function getData() { 
      
     var url = "cit5students.json";             //Step 1. set url of file with data we want  
